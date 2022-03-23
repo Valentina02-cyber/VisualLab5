@@ -14,10 +14,13 @@ namespace RegexApp.Models
         {
             string result = "";
             Regex r = new Regex(pattern);
-            MatchCollection m = r.Matches(text);
-            foreach (Match x in m)
+            if (text != null)
             {
-                result += (x.Value + "\n");
+                MatchCollection m = r.Matches(text);
+                foreach (Match x in m)
+                {
+                    result += (x.Value + "\n");
+                }
             }
             return result;
         }
